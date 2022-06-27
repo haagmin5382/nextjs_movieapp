@@ -1,4 +1,10 @@
+import Title from "../components/Title";
 function potato() {
-  return <div></div>;
+  return (
+    <div>
+      <Title title="About" />
+      <h1>about</h1>
+    </div>
+  );
 }
 export default potato;

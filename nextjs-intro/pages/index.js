@@ -1,7 +1,10 @@
 // pre-rerendering (cmd + option + u 로 확인해보자)
+import Title from "../components/Title";
+
 export default function Home() {
   return (
     <div>
+      <Title title="Home" />
       <h1 className="active">Hello</h1>
 
       {/* 전역 스타일 추가 global속성을 붙인다. */}
