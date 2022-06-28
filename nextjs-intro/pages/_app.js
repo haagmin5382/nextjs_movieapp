@@ -15,12 +15,6 @@ export default function App({ Component, pageProps }) {
          */}
         <Component {...pageProps} />
         <footer></footer>
-        <style jsx global>
-          {`
-        a {
-          color: skyblue;
-      `}
-        </style>
       </Layout>
     </>
   );
