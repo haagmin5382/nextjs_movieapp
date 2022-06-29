@@ -5,7 +5,7 @@
 import { useRouter } from "next/router";
 import Title from "../../components/Title";
 
-export default function Detail({ params }) {
+export default function Detail({ params, result }) {
   const router = useRouter();
   // console.log(router);
 
@@ -16,22 +16,29 @@ export default function Detail({ params }) {
 
   // Server Side Rendering
   console.log(params);
-  const [title, id] = params || [];
+  console.log(result);
+  // const [title, id] = params || [];
   return (
     <div>
-      <Title title={title} />
-      <h4>{title || "Loading ..."}</h4>
+      <Title title={result.original_title} />
+      <h2>{result.original_title || "Loading ..."}</h2>
+      <img src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} />
+      <h3>{result.overview}</h3>
     </div>
   );
 }
 
-export function getServerSideProps({ params: { params } }) {
+export async function getServerSideProps({ params: { params } }) {
   // getServerSideProps(ctx)
   // console.log("ctx", ctx); // NextJS가 server-side context를 제공해준다.
 
   // ctx.parmas.params
   console.log(params);
+
+  const result = await (
+    await fetch(`http://localhost:3000/api/movies/${params[1]}`)
+  ).json();
   return {
-    props: { params },
+    props: { params, result },
   };
 }

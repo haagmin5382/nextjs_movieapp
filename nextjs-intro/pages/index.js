@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Title from "../components/Title";
 
 export default function Home({ results }) {
-  const [movies, setMovies] = useState();
+  // const [movies, setMovies] = useState();
   const router = useRouter();
 
   const goToMovie = (id, title) => {
@@ -27,17 +27,16 @@ export default function Home({ results }) {
     router.push(`/movies/${title}/${id}`);
   };
   useEffect(() => {
+    // Client Side Rendering(CSR)
     // (async () => {
     //   const { results } = await (await fetch("/api/movies")).json();
     //   setMovies(results);
     // })();
-
     // ==
-
-    axios.get(`/api/movies`).then((object) => {
-      // console.log(object);
-      setMovies(object.data.results);
-    });
+    // axios.get(`/api/movies`).then((object) => {
+    //   // console.log(object);
+    //   setMovies(object.data.results);
+    // });
   }, []);
   return (
     <div>
