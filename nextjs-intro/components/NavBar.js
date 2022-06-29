@@ -43,7 +43,7 @@ export default function NavBar() {
         }
 
         .active {
-          color: yellow;
+          color: #93c3ff;
         }
       `}</style>
     </nav>

@@ -1,8 +1,11 @@
 html,
 body {
-  max-width: 520px;
+  max-width: 500px;
   width: 100%;
   margin: 0 auto;
+}
+img {
+  border-radius: 12px;
 }
 
 a {
